@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metafile version="1.5"  client="administrator" >
+	<tag>es-ES</tag>
+	<name>Spanish (es-ES)</name>
+	<description>Spanish administration language for Joomla 1.5.26</description>
+	<version>1.5.26</version>
+	<creationDate>2012-3-27</creationDate>
+	<author>Spanish translation team: Comunidad Joomla</author>
+	<authorUrl>www.comunidadjoomla.org</authorUrl>
+	<authorEmail>info@comunidadjoomla.org</authorEmail>
+	<copyright>(C) 2005 -2010 TodosJuntos </copyright>
+	<copyright>(C) 2005 - 2012 Open Source Matters y comunidadjoomla.org  All rights reserved.</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<metadata>
+		<name>Español</name>
+		<tag>es-ES</tag>
+		<rtl>0</rtl>
+		<locale>es_ES.UTF-8, es_ES, spanish, spanish.UTF-8, spa_ES.UTF-8, spa_ES, sp_ES, es</locale>
+		<winCodePage>iso-8859-1</winCodePage>
+		<backwardLang>spanish</backwardLang>
+		<pdfFontName>freesans</pdfFontName>
+	</metadata>
+	<params></params>
+</metafile>
