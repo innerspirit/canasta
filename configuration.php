@@ -47,7 +47,7 @@ class JConfig {
 	var $smtphost = 'localhost';
 	var $MetaAuthor = '1';
 	var $MetaTitle = '1';
-	var $lifetime = '15';
+	var $lifetime = '99999';
 	var $session_handler = 'database';
 	var $password = '';
 	var $sitename = 'Eco d\'aqui';
