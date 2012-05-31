@@ -378,6 +378,18 @@ class VirtueMartCart {
 			if (!empty($tmpProduct -> customfieldsCart) ) $product -> customfieldsCart = true;
 			//$product -> customsChilds = empty($tmpProduct -> customsChilds)? array(): $tmpProduct -> customsChilds;
 
+                        vmdebug('prod',$tmpProduct);
+                        $children = $this->getChildren((int) $virtuemart_product_id);
+                        vmdebug('children',$children);
+                        if(!empty($children)) {
+                            $ids = array();
+                            foreach($children as $child) {
+                                $ids[] = $child->virtuemart_product_id;
+                            }
+                            $this->add($ids);
+                        }
+                        
+                        
 			//			vmdebug('my product add to cart after',$product);
 			//Why reloading the product wiht same name $product ?
 			// passed all from $tmpProduct and relaoding it second time ????
@@ -388,7 +400,7 @@ class VirtueMartCart {
 			// This is extremly important for performance reasons, else the sessions becomes too big.
 			// Check if we have a product
 			if ($product) {
-				$quantityPost = (int) $post['quantity'][$p_key];
+				$quantityPost = isset($post['quantity'][$p_key]) ? (int) $post['quantity'][$p_key] : 1;
 
 				if(!empty( $post['virtuemart_category_id'][$p_key])){
 					$virtuemart_category_idPost = (int) $post['virtuemart_category_id'][$p_key];
@@ -561,6 +573,14 @@ class VirtueMartCart {
 
 		}
 		return $product;
+	}
+        
+	private function getChildren($virtuemart_product_id) {
+		JModel::addIncludePath(JPATH_VM_ADMINISTRATOR . DS . 'models');
+		$model = JModel::getInstance('Product', 'VirtueMartModel');
+		$children = $model->getProductChilds($virtuemart_product_id);
+
+		return $children;
 	}
 
 
