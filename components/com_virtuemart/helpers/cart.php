@@ -364,6 +364,7 @@ class VirtueMartCart {
 			$product -> min_order_level = $tmpProduct -> min_order_level;
 			$product -> max_order_level = $tmpProduct -> max_order_level;
 			$product -> virtuemart_media_id = $tmpProduct -> virtuemart_media_id;
+			$product -> product_canasta_state = $tmpProduct -> product_canasta_state;
 
 			if(!empty($tmpProduct ->images)) $product->image =  $tmpProduct -> images[0];
 
@@ -378,18 +379,6 @@ class VirtueMartCart {
 			if (!empty($tmpProduct -> customfieldsCart) ) $product -> customfieldsCart = true;
 			//$product -> customsChilds = empty($tmpProduct -> customsChilds)? array(): $tmpProduct -> customsChilds;
 
-                        vmdebug('prod',$tmpProduct);
-                        $children = $this->getChildren((int) $virtuemart_product_id);
-                        vmdebug('children',$children);
-                        if(!empty($children)) {
-                            $ids = array();
-                            foreach($children as $child) {
-                                $ids[] = $child->virtuemart_product_id;
-                            }
-                            $this->add($ids);
-                        }
-                        
-                        
 			//			vmdebug('my product add to cart after',$product);
 			//Why reloading the product wiht same name $product ?
 			// passed all from $tmpProduct and relaoding it second time ????
@@ -471,7 +460,16 @@ class VirtueMartCart {
 				$mainframe->enqueueMessage(JText::_('COM_VIRTUEMART_PRODUCT_NOT_FOUND', false));
 				return false;
 			}
-		}
+
+                        $children = $this->getChildren((int) $virtuemart_product_id);
+                        if(!empty($children)) {
+                            $ids = array();
+                            foreach($children as $child) {
+                                $ids[] = $child->virtuemart_product_id;
+                            }
+                            $this->add($ids);
+                        }
+                }
 		if ($success== false) return false ;
 		// End Iteration through Prod id's
 		$this->setCartIntoSession();
@@ -489,6 +487,15 @@ class VirtueMartCart {
 		/* Check for cart IDs */
 		if (empty($prod_id))
 		$prod_id = JRequest::getVar('cart_virtuemart_product_id');
+                
+                if($this->products[$prod_id]->product_canasta_state == 1) {
+                    foreach($this->products as $pkey => $prow) {
+                        if($prow->product_canasta_state == 2) {
+                            $this->removeProductCart($pkey);
+                        }
+                    }
+                }
+                
 		unset($this->products[$prod_id]);
 
 		$this->setCartIntoSession();

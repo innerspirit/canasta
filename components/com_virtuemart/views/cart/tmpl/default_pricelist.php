@@ -147,7 +147,9 @@
 // 					echo $prow->salesPrice ;
 					?>
 				</td>
-				<td align="right" ><form action="<?php echo JRoute::_('index.php'); ?>" method="post" class="inline">
+				<td align="right" >
+                                    <?php if($prow->product_canasta_state != 2) : ?>
+                                    <form action="<?php echo JRoute::_('index.php'); ?>" method="post" class="inline">
 				<input type="hidden" name="option" value="com_virtuemart" />
 				<input type="text" title="<?php echo  JText::_('COM_VIRTUEMART_CART_UPDATE') ?>" class="inputbox" size="3" maxlength="4" name="quantity" value="<?php echo $prow->quantity ?>" />
 				<input type="hidden" name="view" value="cart" />
@@ -168,6 +170,9 @@
 					echo '<span class="line-through">'.$this->currencyDisplay->createPriceDiv('basePriceWithTax','', $this->cart->pricesUnformatted[$pkey],true,false,$prow->quantity) .'</span><br />' ;
 				}
 				echo $this->currencyDisplay->createPriceDiv('salesPrice','', $this->cart->pricesUnformatted[$pkey],false,false,$prow->quantity) ?></td>
+                                <?php else: ?>
+                                <td></td><td></td><td></td>
+                                <?php endif; ?>
 			</tr>
 		<?php
 			$i = 1 ? 2 : 1;
