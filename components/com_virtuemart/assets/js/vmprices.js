@@ -22,7 +22,7 @@ var Virtuemart = {
 	},
 	productUpdate : function(mod) {
 		var $ = jQuery ;
-		$.ajaxSetup({ cache: false })
+		$.ajaxSetup({cache: false})
 		$.getJSON(window.vmSiteurl+"index.php?option=com_virtuemart&nosef=1&view=cart&task=viewJS&format=json"+window.vmLang,
 			function(datas, textStatus) {
 				if (datas.totalProduct >0) {
@@ -43,7 +43,7 @@ var Virtuemart = {
 	sendtocart : function (form){
 		var $ = jQuery ;
 		if (Virtuemart.addtocart_popup ==1) {
-			$.ajaxSetup({ cache: false })
+			$.ajaxSetup({cache: false})
 			var datas = form.serialize();
 			$.getJSON(vmSiteurl+'index.php?option=com_virtuemart&nosef=1&view=cart&task=addJS&format=json'+vmLang,encodeURIComponent(datas),
 			function(datas, textStatus) {
@@ -53,25 +53,25 @@ var Virtuemart = {
 											$.facebox.settings.closeImage = closeImage;
 											$.facebox.settings.loadingImage = loadingImage;
 											$.facebox.settings.faceboxHtml = faceboxHtml;
-					$.facebox({ text: datas.msg +"<H4>"+txt+"</H4>" }, 'my-groovy-style');
+					$.facebox({text: datas.msg +"<H4>"+txt+"</H4>"}, 'my-groovy-style');
 				} else if(datas.stat ==2){
 					var value = form.find('.quantity-input').val() ;
 					var txt = form.find(".pname").val();
 											$.facebox.settings.closeImage = closeImage;
 											$.facebox.settings.loadingImage = loadingImage;
 											$.facebox.settings.faceboxHtml = faceboxHtml;
-					$.facebox({ text: datas.msg +"<H4>"+txt+"</H4>" }, 'my-groovy-style');
+					$.facebox({text: datas.msg +"<H4>"+txt+"</H4>"}, 'my-groovy-style');
 				} else {
 											$.facebox.settings.closeImage = closeImage;
 											$.facebox.settings.loadingImage = loadingImage;
 											$.facebox.settings.faceboxHtml = faceboxHtml;
-					$.facebox({ text: "<H4>"+vmCartError+"</H4>"+datas.msg }, 'my-groovy-style');
+					$.facebox({text: "<H4>"+vmCartError+"</H4>"+datas.msg}, 'my-groovy-style');
 				}
 				if ($(".vmCartModule")[0]) {
 					Virtuemart.productUpdate($(".vmCartModule"));
 				}
 			});
-			$.ajaxSetup({ cache: true });
+			$.ajaxSetup({cache: true});
 		} else {
 			form.append('<input type="hidden" name="task" value="add" />');
 			form.submit();
@@ -132,5 +132,21 @@ jQuery(document).ready(function($) {
 
 		}
 	});
+        
+        var $ = jQuery;
+        
+        $('.changeproduct').click(function() {
+            $.ajaxSetup({cache: false});
+            var data = { pid: $(this).data('product-id') };
+            $.get(vmSiteurl+'index.php?option=com_virtuemart&nosef=1&view=cart&task=showChangeProduct&format=json'+vmLang, data,
+            function(rdata, textStatus) {
+                $.facebox.settings.closeImage = closeImage;
+                $.facebox.settings.loadingImage = loadingImage;
+                $.facebox.settings.faceboxHtml = faceboxHtml;
+                $.facebox({text: '<H4>Cambiar producto por...</H4>'+rdata}, 'my-groovy-style');
+            });
+            $.ajaxSetup({cache: true});
+            return false;
+        });
 });
 

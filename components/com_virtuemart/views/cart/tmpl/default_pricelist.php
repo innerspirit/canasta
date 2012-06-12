@@ -137,7 +137,9 @@
 						</span>
 					<?php } ?>
 					<?php echo JHTML::link($prow->url, $prow->product_name).$prow->customfields; ?>
-
+                                    <?php if($prow->product_canasta_state == 2): ?>
+                                    - [<?php echo JHTML::link('#', 'cambiar', array('class'=>'changeproduct', 'data-product-id'=>$prow->cart_item_id)); ?>]
+                                    <?php endif; ?>
 				</td>
 				<td align="left" ><?php  echo $prow->product_sku ?></td>
 				<td align="center" >
@@ -148,30 +150,30 @@
 					?>
 				</td>
 				<td align="right" >
-                                    <?php if($prow->product_canasta_state != 2) : ?>
+                                <?php if($prow->product_canasta_state != 2) : ?>
                                     <form action="<?php echo JRoute::_('index.php'); ?>" method="post" class="inline">
-				<input type="hidden" name="option" value="com_virtuemart" />
-				<input type="text" title="<?php echo  JText::_('COM_VIRTUEMART_CART_UPDATE') ?>" class="inputbox" size="3" maxlength="4" name="quantity" value="<?php echo $prow->quantity ?>" />
-				<input type="hidden" name="view" value="cart" />
-				<input type="hidden" name="task" value="update" />
-				<input type="hidden" name="cart_virtuemart_product_id" value="<?php echo $prow->cart_item_id  ?>" />
-				<input type="submit" class="vmicon vm2-add_quantity_cart" name="update" title="<?php echo  JText::_('COM_VIRTUEMART_CART_UPDATE') ?>" align="middle" value=" "/>
-			  </form>
-					<a class="vmicon vm2-remove_from_cart" title="<?php echo JText::_('COM_VIRTUEMART_CART_DELETE') ?>" align="middle" href="<?php echo JRoute::_('index.php?option=com_virtuemart&view=cart&task=delete&cart_virtuemart_product_id='.$prow->cart_item_id  ) ?>"> </a>
-				</td>
+                                    <input type="hidden" name="option" value="com_virtuemart" />
+                                    <input type="text" title="<?php echo  JText::_('COM_VIRTUEMART_CART_UPDATE') ?>" class="inputbox" size="3" maxlength="4" name="quantity" value="<?php echo $prow->quantity ?>" />
+                                    <input type="hidden" name="view" value="cart" />
+                                    <input type="hidden" name="task" value="update" />
+                                    <input type="hidden" name="cart_virtuemart_product_id" value="<?php echo $prow->cart_item_id  ?>" />
+                                    <input type="submit" class="vmicon vm2-add_quantity_cart" name="update" title="<?php echo  JText::_('COM_VIRTUEMART_CART_UPDATE') ?>" align="middle" value=" "/>
+                                    </form>
+                                    <a class="vmicon vm2-remove_from_cart" title="<?php echo JText::_('COM_VIRTUEMART_CART_DELETE') ?>" align="middle" href="<?php echo JRoute::_('index.php?option=com_virtuemart&view=cart&task=delete&cart_virtuemart_product_id='.$prow->cart_item_id  ) ?>"> </a>
+                                    </td>
 
-				<?php if ( VmConfig::get('show_tax')) { ?>
-				<td align="right"><?php echo "<span class='priceColor2'>".$this->currencyDisplay->createPriceDiv('taxAmount','', $this->cart->pricesUnformatted[$pkey],false,false,$prow->quantity)."</span>" ?></td>
-                                <?php } ?>
-				<td align="right"><?php echo "<span class='priceColor2'>".$this->currencyDisplay->createPriceDiv('discountAmount','', $this->cart->pricesUnformatted[$pkey],false,false,$prow->quantity)."</span>" ?></td>
-				<td colspan="1" align="right">
-				<?php
-				if (VmConfig::get('checkout_show_origprice',1) && !empty($this->cart->pricesUnformatted[$pkey]['basePriceWithTax']) && $this->cart->pricesUnformatted[$pkey]['basePriceWithTax'] != $this->cart->pricesUnformatted[$pkey]['salesPrice'] ) {
-					echo '<span class="line-through">'.$this->currencyDisplay->createPriceDiv('basePriceWithTax','', $this->cart->pricesUnformatted[$pkey],true,false,$prow->quantity) .'</span><br />' ;
-				}
-				echo $this->currencyDisplay->createPriceDiv('salesPrice','', $this->cart->pricesUnformatted[$pkey],false,false,$prow->quantity) ?></td>
+                                    <?php if ( VmConfig::get('show_tax')) { ?>
+                                    <td align="right"><?php echo "<span class='priceColor2'>".$this->currencyDisplay->createPriceDiv('taxAmount','', $this->cart->pricesUnformatted[$pkey],false,false,$prow->quantity)."</span>" ?></td>
+                                    <?php } ?>
+                                    <td align="right"><?php echo "<span class='priceColor2'>".$this->currencyDisplay->createPriceDiv('discountAmount','', $this->cart->pricesUnformatted[$pkey],false,false,$prow->quantity)."</span>" ?></td>
+                                    <td colspan="1" align="right">
+                                    <?php
+                                    if (VmConfig::get('checkout_show_origprice',1) && !empty($this->cart->pricesUnformatted[$pkey]['basePriceWithTax']) && $this->cart->pricesUnformatted[$pkey]['basePriceWithTax'] != $this->cart->pricesUnformatted[$pkey]['salesPrice'] ) {
+                                            echo '<span class="line-through">'.$this->currencyDisplay->createPriceDiv('basePriceWithTax','', $this->cart->pricesUnformatted[$pkey],true,false,$prow->quantity) .'</span><br />' ;
+                                    }
+                                    echo $this->currencyDisplay->createPriceDiv('salesPrice','', $this->cart->pricesUnformatted[$pkey],false,false,$prow->quantity) ?></td>
                                 <?php else: ?>
-                                <td></td><td></td><td></td>
+                                    <td></td><td></td><td></td>
                                 <?php endif; ?>
 			</tr>
 		<?php

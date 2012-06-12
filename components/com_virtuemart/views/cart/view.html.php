@@ -31,6 +31,8 @@ if(!class_exists('VmView'))require(JPATH_VM_SITE.DS.'helpers'.DS.'vmview.php');
  * @author Patrick Kohl
  */
 class VirtueMartViewCart extends VmView {
+    
+        private $pmodel = null;
 
 	public function display($tpl = null) {
 		$mainframe = JFactory::getApplication();
@@ -65,7 +67,15 @@ class VirtueMartViewCart extends VmView {
 		$document->setTitle(JText::_('COM_VIRTUEMART_CART_SELECTCOUPON'));
 
 		} else */
-		if ($layoutName == 'select_shipment') {
+		if ($layoutName == 'change_product') {
+                    $pid = JRequest::getInt('pid',0);
+                    $this->pmodel = VmModel::getModel('product');
+                    $prod = $this->pmodel->getProduct($pid, true, true);
+                    $canasta = $this->pmodel->getProductChilds($prod->product_parent_id);
+                    //var_dump($prod,1);
+                    $prods = $this->getEquivalentCanastaProducts($canasta, $prod);
+                    $this->assign('prods',$prods);
+                } else if ($layoutName == 'select_shipment') {
 			if (!class_exists('vmPSPlugin')) require(JPATH_VM_PLUGINS . DS . 'vmpsplugin.php');
 			JPluginHelper::importPlugin('vmshipment');
 			$this->lSelectShipment();
@@ -154,8 +164,21 @@ class VirtueMartViewCart extends VmView {
 		parent::display($tpl);
 	}
 
-
-
+        private function getEquivalentCanastaProducts(array $canasta, $prod) {
+            $items = array();
+            foreach($canasta as $cprod) {
+                $cp = $this->pmodel->getProduct($cprod->virtuemart_product_id, true, true);
+                if($cp->virtuemart_product_id != $prod->virtuemart_product_id) {
+                    $target = $prod->product_price;
+                    $base = $cp->prices['unitPrice'];
+                    $current = $cp->product_price;
+                    $final = floor(($base * $target) / $current);
+                    $items[$cp->virtuemart_product_id] = JHTML::_('select.option',($final . ' x ' . $cp->product_name));
+                }
+            }
+            return $items;
+        }
+        
 	private function prepareContinueLink() {
 		// Get a continue link */
 		$virtuemart_category_id = shopFunctionsF::getLastVisitedCategoryId();

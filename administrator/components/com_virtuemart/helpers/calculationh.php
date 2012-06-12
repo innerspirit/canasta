@@ -221,6 +221,8 @@ class calculationHelper {
 
 
 		$costPrice = 0;
+                $units = 0;
+                $weight = 0;
 
 		//We already have the productobject, no need for extra sql
 		if (is_object($productId)) {
@@ -235,6 +237,9 @@ class calculationHelper {
 				$this->productVendorId = 1;
 			}
 			$this->_cats = $productId->categories;
+                        $units = isset($productId->box) ? $productId->box : 0;
+                        $weight = isset($productId->product_weight) ? $productId->product_weight : 0;
+                        $prices['unitPrice'] = isset($productId->product_price)? $productId->product_price : 0;
 		} //Use it as productId
 		else {
 			vmSetStartTime('getProductCalcs');
@@ -248,6 +253,9 @@ class calculationHelper {
 					$product_override_price = $row['product_override_price'];
 					$this->product_tax_id = $row['product_tax_id'];
 					$this->product_discount_id = $row['product_discount_id'];
+                                        $units = $row['box'];
+                                        $weight = $row['product_weight'];
+                                        $prices['unitPrice'] = $row['product_price'];
 				} else {
 					$app = Jfactory::getApplication();
 					$app->enqueueMessage('cost Price empty, if child, everything okey, this is just a dev note');
@@ -279,6 +287,12 @@ class calculationHelper {
 		if (!empty($amount)) {
 			$this->_amount = $amount;
 		}
+                
+                if($units > 0) {
+                    $prices['unitPrice'] /= $units;
+                } else if($weight > 0) {
+                    $prices['unitPrice'] /= ($weight / 100);
+                }
 
 		$this->setCountryState($this->_cart);
 

@@ -94,6 +94,22 @@ class VirtueMartControllerCart extends JController {
 			$mainframe->enqueueMessage('Cart does not exist?', 'error');
 		}
 	}
+        
+        public function showChangeProduct() {
+            $view = $this->getView('cart', 'html');
+            $view->setLayout('change_product');
+            $view->display();
+        }
+        
+        public function changeProduct() {
+            // remove product from cart
+            // add other product to cart
+            // change product price
+            die('todo');
+            $view = $this->getView('cart', 'html');
+            $view->setLayout('change_product');
+            $view->display();
+        }
 
 	/**
 	 * Add the product to the cart, with JS
