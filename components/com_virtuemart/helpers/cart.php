@@ -307,7 +307,7 @@ class VirtueMartCart {
 		$success = false;
 		$post = JRequest::get('default');
 
-		if(empty($virtuemart_product_ids)){
+                if(empty($virtuemart_product_ids)){
 			$virtuemart_product_ids = JRequest::getVar('virtuemart_product_id', array(), 'default', 'array'); //is sanitized then
 		}
 
@@ -570,7 +570,7 @@ class VirtueMartCart {
 	 * @param int $virtuemart_product_id The product ID to get the object for
 	 * @return object The product details object
 	 */
-	private function getProduct($virtuemart_product_id) {
+	public function getProduct($virtuemart_product_id) {
 		JModel::addIncludePath(JPATH_VM_ADMINISTRATOR . DS . 'models');
 		$model = JModel::getInstance('Product', 'VirtueMartModel');
 		$product = $model->getProduct($virtuemart_product_id, true, false);
@@ -1479,4 +1479,27 @@ class VirtueMartCart {
 		$this->data->dataValidated = $this->_dataValidated ;
 		return $this->data ;
 	}
+        
+         public function getEquivalentCanastaProducts(array $canasta, $prod) {
+            $items = array();
+            $pmodel = VmModel::getModel('product');
+            foreach($canasta as $cprod) {
+                $cp = $pmodel->getProduct($cprod->virtuemart_product_id, true, true);
+                if($cp->virtuemart_product_id != $prod->virtuemart_product_id) {
+                    $final = self::getEquivalentQuantity($prod->product_price, $cp);
+                    $items[$cp->virtuemart_product_id] = JHTML::_('select.option',$cp->virtuemart_product_id,($final . ' x ' . $cp->product_name));
+                }
+            }
+            return $items;
+        }
+        
+        public function getEquivalentQuantity($original, $product) {
+            $base = $product->prices['unitPrice'];
+            $current = $product->product_price;
+            if($product->box > 0) {
+                return floor(($base * $original) / $current);
+            } else {
+                return floor(($base * 100 * $original) / $current);
+            }
+        }
 }

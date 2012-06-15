@@ -102,7 +102,29 @@ class VirtueMartControllerCart extends JController {
         }
         
         public function changeProduct() {
-            // remove product from cart
+            $cart = VirtueMartCart::getCart();
+//            session_destroy();
+//            var_dump($cart);
+//            die();
+            $oid = JRequest::getInt('original',0);
+            $credit = (int) $cart->products[$oid]->product_price;
+            unset($cart->products[$oid]);
+            $pid = reset(JRequest::getVar('virtuemart_product_id', array(), 'default', 'array'));
+            $pmodel = VmModel::getModel('product');
+            $prod = $pmodel->getProduct($pid, true, true);
+            $multiplier = (int) $cart->getEquivalentQuantity($credit, $prod);
+            if($prod->box <= 0) {
+                $multiplier /= 100;
+            }
+            $prod->product_price = (string) ((int) $prod->product_price + (int) $prod->prices['unitPrice'] * $multiplier);
+            $prod->quantity = 1;
+            $cart->products[$pid] = $prod;
+            $session = JFactory::getSession();
+            $session->set('vmcart', serialize($cart),'vm');
+//            $cart->setCartIntoSession();
+ /*           $mainframe = JFactory::getApplication();
+            $mainframe->enqueueMessage('Cart product changed.', $type);
+            $mainframe->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart'));*/
             // add other product to cart
             // change product price
             die('todo');
