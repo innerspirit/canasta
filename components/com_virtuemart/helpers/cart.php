@@ -465,7 +465,9 @@ class VirtueMartCart {
                         if(!empty($children)) {
                             $ids = array();
                             foreach($children as $child) {
-                                $ids[] = $child->virtuemart_product_id;
+                                if($child->product_canasta_state != 3) {
+                                    $ids[] = $child->virtuemart_product_id;
+                                }
                             }
                             $this->add($ids);
                         }
@@ -490,7 +492,7 @@ class VirtueMartCart {
                 
                 if($this->products[$prod_id]->product_canasta_state == 1) {
                     foreach($this->products as $pkey => $prow) {
-                        if($prow->product_canasta_state == 2) {
+                        if($prow->product_canasta_state > 1) {
                             $this->removeProductCart($pkey);
                         }
                     }
@@ -1484,22 +1486,41 @@ class VirtueMartCart {
             $items = array();
             $pmodel = VmModel::getModel('product');
             foreach($canasta as $cprod) {
-                $cp = $pmodel->getProduct($cprod->virtuemart_product_id, true, true);
-                if($cp->virtuemart_product_id != $prod->virtuemart_product_id) {
-                    $final = self::getEquivalentQuantity($prod->product_price, $cp);
-                    $items[$cp->virtuemart_product_id] = JHTML::_('select.option',$cp->virtuemart_product_id,($final . ' x ' . $cp->product_name));
+                if($cprod->published) {
+                    $cp = $pmodel->getProduct($cprod->virtuemart_product_id, true, true);
+                    if($cp->virtuemart_product_id != $prod->virtuemart_product_id) {
+                        $final = (int) self::getEquivalentQuantity($cp, $prod);
+                        if(!empty($cp->box)) {
+                            $label = floor($final) . 'x ' . $cp->product_name;
+                        } else {
+                            $final = floor($final * 100 / 50) * 50;
+                            $label = $final . 'g ' . $cp->product_name;
+                        }
+                        $items[$cp->virtuemart_product_id] = JHTML::_('select.option',$cp->virtuemart_product_id,$label);
+                    }
                 }
             }
             return $items;
         }
         
-        public function getEquivalentQuantity($original, $product) {
-            $base = $product->prices['unitPrice'];
-            $current = $product->product_price;
-            if($product->box > 0) {
-                return floor(($base * $original) / $current);
+        public function getEquivalentQuantity($prod1, $prod2) {
+            $base = $prod1->prices['unitPrice'];
+            $orig_price = $prod1->product_price;
+            $current = $prod2->product_price;
+//            echo "<br>original product ".(!empty($prod1->box) ? '(u)' : '(g)')." | price $orig_price | base $base | units ".(!empty($prod1->box) ? $prod1->box : $prod1->product_weight). '<br>';
+//            echo "new product ".(!empty($prod2->box) ? '(u)' : '(g)')." | price $current | base ".$prod2->prices['unitPrice']." | units ".(!empty($prod2->box) ? $prod2->box : $prod2->product_weight) . '<br>';
+//            echo "$current / $base = ".($current / $base).' or '.floor($current / $base) . '<br><br>';
+            if($prod2->box > 0) {
+                return floor($current / $base);
             } else {
-                return floor(($base * 100 * $original) / $current);
+                return $current / $base;
             }
+        }
+        
+        public function getTaxProduct() {
+            $db = JFactory::getDBO();
+            $q = 'select * FROM `#__virtuemart_products` as p where product_canasta_state = 3 limit 1';
+            $db->setQuery($q);
+            return $db->loadObject();
         }
 }

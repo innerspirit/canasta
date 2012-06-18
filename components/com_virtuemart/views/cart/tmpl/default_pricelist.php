@@ -126,6 +126,7 @@
 		<?php
 		$i=1;
 // 		vmdebug('$this->cart->products',$this->cart->products);
+                $pmodel = VmModel::getModel('product');
 		foreach( $this->cart->products as $pkey =>$prow ) { ?>
 			<tr valign="top" class="sectiontableentry<?php echo $i ?>">
 				<td align="left" >
@@ -136,9 +137,27 @@
 						 ?>
 						</span>
 					<?php } ?>
-					<?php echo JHTML::link($prow->url, $prow->product_name).$prow->customfields; ?>
+					<?php
+                                        if($prow->product_canasta_state == 3) {
+                                            echo $prow->product_name;
+                                        } else {
+                                            echo JHTML::link($prow->url, $prow->product_name).$prow->customfields;
+                                        }
+                                        ?>
                                     <?php if($prow->product_canasta_state == 2): ?>
-                                    - [<?php echo JHTML::link('#', 'cambiar', array('class'=>'changeproduct', 'data-product-id'=>$prow->cart_item_id)); ?>]
+                                        <?php
+                                        $prod = $pmodel->getProduct($prow->virtuemart_product_id, true, true);
+                                        $cart = VirtueMartCart::getCart();
+                                        $prod->product_price = $prow->product_price;
+                                        $eq = (int) $cart->getEquivalentQuantity($prod, $prod);
+                                        if($prod->box > 0) {
+                                            echo '('.floor($eq).')';
+                                        } else {
+                                            $eq = floor($eq * 100 / 50) * 50;
+                                            echo  '('.$eq.'g)';
+                                        }
+                                        ?>
+                                    - [<?php echo JHTML::link('#', 'reemplazar', array('class'=>'changeproduct', 'data-product-id'=>$prow->cart_item_id)); ?>]
                                     <?php endif; ?>
 				</td>
 				<td align="left" ><?php  echo $prow->product_sku ?></td>
@@ -149,18 +168,36 @@
 // 					echo $prow->salesPrice ;
 					?>
 				</td>
-				<td align="right" >
+                                <?php if($prow->product_canasta_state < 2) : ?>
+        				<td align="right" >
+                                <?php elseif($prow->product_canasta_state == 3) : ?>
+        				<td align="left" style="padding-left: 30px" >
+                                <?php endif; ?>
                                 <?php if($prow->product_canasta_state != 2) : ?>
                                     <form action="<?php echo JRoute::_('index.php'); ?>" method="post" class="inline">
+                                <?php endif; ?>
+                                <?php if(!in_array($prow->product_canasta_state,array(2,3))) : ?>
                                     <input type="hidden" name="option" value="com_virtuemart" />
+                                <?php endif; ?>
+                                <?php if($prow->product_canasta_state < 2) : ?>
                                     <input type="text" title="<?php echo  JText::_('COM_VIRTUEMART_CART_UPDATE') ?>" class="inputbox" size="3" maxlength="4" name="quantity" value="<?php echo $prow->quantity ?>" />
+                                <?php elseif($prow->product_canasta_state == 3) : ?>
+                                    <?php echo $prow->quantity ?>
+                                <?php endif; ?>
+                                <?php if(!in_array($prow->product_canasta_state,array(2,3))) : ?>
                                     <input type="hidden" name="view" value="cart" />
                                     <input type="hidden" name="task" value="update" />
                                     <input type="hidden" name="cart_virtuemart_product_id" value="<?php echo $prow->cart_item_id  ?>" />
                                     <input type="submit" class="vmicon vm2-add_quantity_cart" name="update" title="<?php echo  JText::_('COM_VIRTUEMART_CART_UPDATE') ?>" align="middle" value=" "/>
+                                <?php endif; ?>
+                                <?php if($prow->product_canasta_state != 2) : ?>
                                     </form>
+                                <?php endif; ?>
+                                <?php if(!in_array($prow->product_canasta_state,array(2,3))) : ?>
                                     <a class="vmicon vm2-remove_from_cart" title="<?php echo JText::_('COM_VIRTUEMART_CART_DELETE') ?>" align="middle" href="<?php echo JRoute::_('index.php?option=com_virtuemart&view=cart&task=delete&cart_virtuemart_product_id='.$prow->cart_item_id  ) ?>"> </a>
+                                <?php endif; ?>
                                     </td>
+                                <?php if($prow->product_canasta_state != 2) : ?>
 
                                     <?php if ( VmConfig::get('show_tax')) { ?>
                                     <td align="right"><?php echo "<span class='priceColor2'>".$this->currencyDisplay->createPriceDiv('taxAmount','', $this->cart->pricesUnformatted[$pkey],false,false,$prow->quantity)."</span>" ?></td>

@@ -102,35 +102,41 @@ class VirtueMartControllerCart extends JController {
         }
         
         public function changeProduct() {
-            $cart = VirtueMartCart::getCart();
 //            session_destroy();
-//            var_dump($cart);
 //            die();
+            $cart = VirtueMartCart::getCart();
             $oid = JRequest::getInt('original',0);
-            $credit = (int) $cart->products[$oid]->product_price;
+            $pmodel = VmModel::getModel('product');
+            $orig_prod = $pmodel->getProduct($oid, true, true);
+            $cart_prod = $orig_prod;
+            $cart_prod->product_price = $cart->products[$oid]->product_price;
             unset($cart->products[$oid]);
             $pid = reset(JRequest::getVar('virtuemart_product_id', array(), 'default', 'array'));
-            $pmodel = VmModel::getModel('product');
-            $prod = $pmodel->getProduct($pid, true, true);
-            $multiplier = (int) $cart->getEquivalentQuantity($credit, $prod);
-            if($prod->box <= 0) {
-                $multiplier /= 100;
+            $newprod = $pmodel->getProduct($pid, true, true);
+            if(isset($cart->products[$pid])) {
+                $newprice = (int) $newprod->product_price + (int) $cart_prod->product_price;
+            } else {
+                $newprice = (int) $cart_prod->product_price;
             }
-            $prod->product_price = (string) ((int) $prod->product_price + (int) $prod->prices['unitPrice'] * $multiplier);
-            $prod->quantity = 1;
-            $cart->products[$pid] = $prod;
+            $newprod->product_price = (string) $newprice;
+            $newprod->quantity = 1;
+            $cart->products[$pid] = $newprod;
+            $taxprod = VirtueMartCart::getTaxProduct();
+            $tpid = $taxprod->virtuemart_product_id;
+            $tp_full = $pmodel->getProduct($tpid, true, true, false);
+            if(isset($cart->products[$tpid])) {
+                $cart->products[$tpid]->quantity += 1;
+            } else {
+                $cart->products[$tpid] = $tp_full;
+                $cart->products[$tpid]->quantity = 1;
+            }
+//            var_dump($cart_prod, $tp_full, $tpid, $cart->products[$tpid]);
+//            die();
             $session = JFactory::getSession();
             $session->set('vmcart', serialize($cart),'vm');
-//            $cart->setCartIntoSession();
- /*           $mainframe = JFactory::getApplication();
-            $mainframe->enqueueMessage('Cart product changed.', $type);
-            $mainframe->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart'));*/
-            // add other product to cart
-            // change product price
-            die('todo');
-            $view = $this->getView('cart', 'html');
-            $view->setLayout('change_product');
-            $view->display();
+            $mainframe = JFactory::getApplication();
+            $mainframe->enqueueMessage('Cart product changed.');
+            $mainframe->redirect(JRoute::_('index.php?option=com_virtuemart&view=cart'));
         }
 
 	/**
@@ -451,3 +457,6 @@ class VirtueMartControllerCart extends JController {
 }
 
 //pure php no Tag
+
+//session_destroy();
+//die();

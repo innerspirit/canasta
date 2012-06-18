@@ -153,7 +153,8 @@ $i=0;
                                                 array(
                                                     (object) array( 'value' => 0, 'text' => 'No'),
                                                     (object) array( 'value' => 1, 'text' => JText::_('COM_VIRTUEMART_PRODUCT_FORM_IS_CANASTA')),
-                                                    (object) array( 'value' => 2, 'text' => JText::_('COM_VIRTUEMART_PRODUCT_FORM_ITEM_CANASTA'))
+                                                    (object) array( 'value' => 2, 'text' => JText::_('COM_VIRTUEMART_PRODUCT_FORM_ITEM_CANASTA')),
+                                                    (object) array( 'value' => 3, 'text' => JText::_('COM_VIRTUEMART_PRODUCT_FORM_ITEM_TAX'))
                                                 ),'product_canasta_state',null,'value','text',$this->product->product_canasta_state); ?>
 					</td>
 				</tr>

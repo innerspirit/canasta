@@ -71,6 +71,8 @@ class VirtueMartViewCart extends VmView {
                     $pid = JRequest::getInt('pid',0);
                     $this->pmodel = VmModel::getModel('product');
                     $prod = $this->pmodel->getProduct($pid, true, true);
+                    $cart = VirtueMartCart::getCart();
+                    $prod->product_price = $cart->products[$pid]->product_price;
                     $canasta = $this->pmodel->getProductChilds($prod->product_parent_id);
                     $prods = VirtueMartCart::getEquivalentCanastaProducts($canasta, $prod);
                     $this->assign('original', $prod->virtuemart_product_id);
