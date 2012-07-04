@@ -13,7 +13,7 @@ else {$float="center";}
 if ($display_style =="div") { ?>
 <div class="vmproduct<?php echo $params->get('moduleclass_sfx'); ?>">
 <?php foreach ($products as $product) { ?>
-	<div class="<?php echo $pwidth ?> <?php echo $float ?>"><div class="spacer">
+	<div class="<?php echo $float ?>"><div class="spacer">
 <?php
  if (!empty($product->images[0]) )
  $image = $product->images[0]->displayMediaThumb('class="featuredProductImage" border="0"',false) ;
@@ -31,7 +31,7 @@ $product->virtuemart_category_id); ?>		<a href="<?php echo $url ?>"><?php echo $
  }
  if ($show_addtocart) echo mod_virtuemart_product::addtocart($product);
  ?>
- </div></div>
+ </div></div><br style='clear:both;' /><br style='clear:both;' />
 	<?php
 		if ($col == $products_per_row && $products_per_row && $col < $totalProd ) {
 			echo "	</div><div style='clear:both;'>";
