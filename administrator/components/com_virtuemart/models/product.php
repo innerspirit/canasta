@@ -820,9 +820,10 @@ class VirtueMartModelProduct extends VmModel {
 		{
 			$this->virtuemart_category_id = false;
 		}
-		$ids = $this->sortSearchListQuery($onlyPublished, $this->virtuemart_category_id, $group, $nbrReturnProducts);
+		$ids = $this->sortSearchListQuery($onlyPublished, $this->virtuemart_category_id, $group);
 
 		$products = $this->getProducts($ids, $front, $withCalc, $onlyPublished,$single);
+                $products = array_slice($products, 0, $nbrReturnProducts);
 		return $products;
 	}
 
@@ -890,8 +891,10 @@ class VirtueMartModelProduct extends VmModel {
 			$i = 0;
 			foreach($productIds as $id){
 				if($product = $this->getProduct((int)$id,$front, $withCalc, $onlyPublished)){
+                                    if($product->product_canasta_state <= 1) {
 					$products[] = $product;
 					$i++;
+                                    }
 				}
 				if($i>$maxNumber){
 					vmdebug('Better not to display more than '.$maxNumber.' products');
