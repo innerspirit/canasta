@@ -114,9 +114,11 @@ class VirtueMartControllerCart extends JController {
             $pid = reset(JRequest::getVar('virtuemart_product_id', array(), 'default', 'array'));
             $newprod = $pmodel->getProduct($pid, true, true);
             if(isset($cart->products[$pid])) {
-                $newprice = (int) $newprod->product_price + (int) $cart_prod->product_price;
+                $newprice = (int) $cart->pricesUnformatted[$pid]['basePrice'] + (int) $cart_prod->product_price;
+                $newquant = $newprice / ($newprod->prices['unitPrice'] * $cart->getEquivalentQuantity($newprod, $newprod));
             } else {
                 $newprice = (int) $cart_prod->product_price;
+                $newquant = 1;
             }
             $newprod->product_price = (string) $newprice;
             $newprod->quantity = 1;

@@ -35,7 +35,7 @@
                                                 <?php echo JText::_("Fecha"); ?>:</label>
                                         </td>
                                         <td >
-                                            <input class="inputbox" type="text" name="repartos[fecha]" id="fecha" size="60" maxlength="255" value="<?php echo (isset($row->fecha) ? $row->fecha : ""); ?>" /> <img class="calendar" src="templates/system/images/calendar.png" alt="calendar" onclick="return showCalendar('fecha', '%Y-%m-%d');" />
+                                            <input class="inputbox" type="text" name="repartos[fecha]" size="60" maxlength="255" value="<?php echo (isset($row->fecha) ? $row->fecha : ""); ?>" />
                                         </td>
                                     </tr>
                                     <tr>

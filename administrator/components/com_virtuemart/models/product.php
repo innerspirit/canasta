@@ -820,10 +820,15 @@ class VirtueMartModelProduct extends VmModel {
 		{
 			$this->virtuemart_category_id = false;
 		}
-		$ids = $this->sortSearchListQuery($onlyPublished, $this->virtuemart_category_id, $group);
 
-		$products = $this->getProducts($ids, $front, $withCalc, $onlyPublished,$single);
-                $products = array_slice($products, 0, $nbrReturnProducts);
+		if(is_numeric($nbrReturnProducts)) {
+			$ids = $this->sortSearchListQuery($onlyPublished, $this->virtuemart_category_id, $group);
+			$products = $this->getProducts($ids, $front, $withCalc, $onlyPublished,$single);
+	        $products = array_slice($products, 0, $nbrReturnProducts);
+		} else {
+			$ids = $this->sortSearchListQuery($onlyPublished, $this->virtuemart_category_id, $group, $nbrReturnProducts);
+			$products = $this->getProducts($ids, $front, $withCalc, $onlyPublished,$single);
+		}
 		return $products;
 	}
 

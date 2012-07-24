@@ -1,0 +1,406 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "administrator/components/com_virtuemart/models/product.php",
+			"settings":
+			{
+				"buffer_size": 55038,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "administrator/components/com_virtuemart/helpers/vmmodel.php",
+			"settings":
+			{
+				"buffer_size": 19655,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 311.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 536.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Christian/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Christian/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/controllers/product.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/product/tmpl/default.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/admin.virtuemart.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/controllers/virtuemart.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/virtuemart/tmpl/default.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/index.html",
+		"/C/wamp/www/fgteam/bonfire/application/core/MY_Controller.php",
+		"/C/wamp/www/fgteam/bonfire/application/controllers/home.php",
+		"/C/wamp/www/fgteam/bonfire/application/libraries/MyBBIntegrator.php",
+		"/C/wamp/www/fgteam/assets/js/home.js",
+		"/C/wamp/www/fgteam/bonfire/themes/default/parts/topbar.php",
+		"/C/wamp/www/fgteam/bonfire/themes/default/index.php",
+		"/C/wamp/www/fgteam/bonfire/application/core_modules/users/controllers/users.php",
+		"/C/wamp/www/fgteam/bonfire/application/helpers/MY_html_helper.php",
+		"/C/wamp/www/fgteam/foro/merge/resources/class_error.php",
+		"/C/wamp/www/fgteam/bonfire/application/helpers/application_helper.php",
+		"/C/wamp/www/fgteam/foro/global.php",
+		"/C/wamp/www/fgteam/foro/usercp2.php",
+		"/C/wamp/www/fgteam/foro/inc/class_timers.php",
+		"/C/wamp/www/fgteam/foro/inc/class_session.php",
+		"/C/wamp/www/fgteam/foro/inc/functions.php",
+		"/C/wamp/www/fgteam/foro/inc/class_plugins.php",
+		"/C/wamp/www/fgteam/foro/inc/class_core.php",
+		"/C/wamp/www/fgteam/foro/merge/resources/functions.php",
+		"/C/wamp/www/fgteam/foro/inc/class_templates.php",
+		"/C/wamp/www/fgteam/bonfire/application/controllers/equipo.php",
+		"/C/wamp/www/fgteam/head.html",
+		"/C/wamp/www/fgteam/foro/cache/themes/theme3/global.css",
+		"/C/wamp/www/fgteam/bonfire/themes/default/screen.css",
+		"/C/wamp/www/fgteam/assets/css/style.css",
+		"/C/wamp/www/fgteam/foro/admin/styles/default/style.css",
+		"/C/wamp/www/fgteam/foot.html",
+		"/C/wamp/www/fgteam/bonfire/themes/default/parts/_header.php",
+		"/C/wamp/www/fgteam/foro/install/resources/mybb_theme.xml",
+		"/C/wamp/www/fgteam/bonfire/themes/default/parts/_footer.php",
+		"/C/wamp/www/fgteam/foro/admin/modules/user/users.php",
+		"/C/wamp/www/fgteam/foro/inc/init.php",
+		"/C/wamp/www/fgteam/foro/inc/languages/english/global.lang.php",
+		"/C/wamp/www/fgteam/foro/inc/languages/english.php",
+		"/C/wamp/www/fgteam/foro/inc/class_language.php",
+		"/C/wamp/www/fgteam/foro/install/resources/usergroups.xml",
+		"/C/wamp/www/fgteam/foro/install/resources/upgrade9.php",
+		"/C/wamp/www/fgteam/foro/index.php",
+		"/C/wamp/www/fgteam/foro/member.php",
+		"/C/wamp/www/fgteam/foro/inc/plugins/loginconvert.php",
+		"/C/wamp/www/fgteam/foro/inc/functions_online.php",
+		"/C/wamp/www/fgteam/foro/forumdisplay.php",
+		"/C/wamp/www/fgteam/foro/inc/adminfunctions_templates.php",
+		"/C/wamp/www/fgteam/foro/inc/class_parser.php",
+		"/C/wamp/www/fgteam/foro/inc/functions_forumlist.php",
+		"/C/wamp/www/fgteam/foro/inc/functions_post.php",
+		"/C/wamp/www/fgteam/foro/inc/3rdparty/diff/Diff/Renderer.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/DB_active_rec.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/DB_cache.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/DB_utility.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/DB_result.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/DB_forge.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/DB_driver.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/drivers/mysqli/mysqli_utility.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/drivers/mysqli/mysqli_result.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/drivers/mysqli/mysqli_forge.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/drivers/mysqli/mysqli_driver.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/drivers/mysql/mysql_driver.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/drivers/mysql/mysql_utility.php",
+		"/C/wamp/www/fgteam/bonfire/codeigniter/database/drivers/mysql/mysql_result.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\wamp\\www\\fgteam\\foro",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"alt",
+			"forums",
+			"unread",
+			"ALLOWABLE_PAGE",
+			"$maintimer",
+			"redirect(",
+			"redirect",
+			"login",
+			"h3",
+			"#content",
+			"body",
+			"#header .list2 li",
+			"$templates->get(\"nav\"",
+			"navigation",
+			"<navigation>",
+			"\"container\"",
+			"container",
+			"logoutkey",
+			"unreadpms",
+			"header_welcomeblock_guest",
+			"avatar",
+			"on eval(",
+			"header_welcomeblock_guest",
+			"user",
+			"$lang =",
+			"$lang->welcome_back",
+			"avatar",
+			"templates",
+			"avatar",
+			"uid",
+			"on run_hooks(",
+			"member_login",
+			"do_login",
+			"index_loginform",
+			"loginform",
+			"login_form",
+			"login(",
+			"user",
+			"$mybb = ",
+			"$mybb =  ",
+			"$mybb->user['uid'] = ",
+			"$mybb->user['uid']",
+			"$mybb->user",
+			"welcome_back",
+			"welcome_usercp",
+			"$_GLOBALS",
+			"$welcomeblock",
+			"\"welcomeblock\"",
+			"header",
+			"header_welcomeblock",
+			"header_welcomeblock_guest",
+			"templates",
+			"$welcomeblock",
+			"welcomeblock",
+			"header_welcomeblock_guest",
+			"render(",
+			"$templates->get(",
+			"$templates",
+			"template",
+			"block(",
+			"block",
+			"smalltext"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "administrator/components/com_virtuemart/models/product.php",
+					"settings":
+					{
+						"buffer_size": 55038,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								28773,
+								28773
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 14179.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "administrator/components/com_virtuemart/helpers/vmmodel.php",
+					"settings":
+					{
+						"buffer_size": 19655,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9101,
+								9101
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5886.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"com_virtueindex",
+				"administrator/components/com_virtuemart/index.html"
+			],
+			[
+				"home",
+				"assets/js/home.js"
+			],
+			[
+				"home.php",
+				"bonfire/application/controllers/home.php"
+			],
+			[
+				"global.php",
+				"foro/global.php"
+			],
+			[
+				"session",
+				"foro/inc/class_session.php"
+			],
+			[
+				"global.",
+				"foro/global.php"
+			],
+			[
+				"foro/inc/functions.php",
+				"foro/inc/functions.php"
+			],
+			[
+				"merge",
+				"foro/merge/resources/class_error.php"
+			],
+			[
+				"myhtml",
+				"bonfire/application/helpers/MY_html_helper.php"
+			],
+			[
+				"bonfirethemesdefaultscreen",
+				"bonfire/themes/default/screen.css"
+			],
+			[
+				"screen",
+				"bonfire/themes/default/screen.css"
+			],
+			[
+				"topbar",
+				"bonfire/themes/default/parts/topbar.php"
+			],
+			[
+				"functions",
+				"foro/inc/functions.php"
+			],
+			[
+				"class_core",
+				"foro/inc/class_core.php"
+			],
+			[
+				"mybbintegrator",
+				"bonfire/application/libraries/MyBBIntegrator.php"
+			],
+			[
+				"style.css",
+				"assets/css/style.css"
+			],
+			[
+				"mysql",
+				"bonfire/codeigniter/database/drivers/mysql/mysql_driver.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 235.0,
+	"status_bar_visible": true
+}
