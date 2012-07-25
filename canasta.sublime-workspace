@@ -7,22 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "administrator/components/com_virtuemart/models/product.php",
-			"settings":
-			{
-				"buffer_size": 55038,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "administrator/components/com_virtuemart/helpers/vmmodel.php",
-			"settings":
-			{
-				"buffer_size": 19655,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -52,6 +36,32 @@
 	},
 	"file_history":
 	[
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/tmpl/orders.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/models/orders.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/helpers/vmmodel.php",
+		"/C/wamp/www/canasta/administrator/language/en-GB/en-GB.com_virtuemart.ini",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/view.html.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/controllers/orders.php",
+		"/C/wamp/www/canasta/administrator/includes/toolbar.php",
+		"/C/wamp/www/canasta/libraries/joomla/html/toolbar.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/views/invoice/tmpl/invoice_order.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/tmpl/order.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/views/invoice/tmpl/invoice.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/controllers/invoice.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/tmpl/order_print.php",
+		"/C/wamp/www/canasta/modules/mod_repartos/tmpl/default.php",
+		"/C/wamp/www/canasta/modules/mod_repartos/tmpl/itemlist.php",
+		"/C/wamp/www/canasta/modules/mod_repartos/mod_repartos.php",
+		"/C/wamp/www/canasta/modules/mod_repartos/helper.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/views/cart/tmpl/default_pricelist.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/helpers/cart.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/controllers/cart.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/views/cart/tmpl/mini_cart.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/views/cart/tmpl/change_product.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/views/cart/view.html.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/models/product.php",
+		"/C/wamp/www/canasta/administrator/components/com_repartos/repartos.php",
+		"/C/wamp/www/canasta/administrator/components/com_repartos/views/admin.repartos.html.php",
 		"/C/Users/Christian/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
 		"/C/Users/Christian/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
 		"/C/wamp/www/canasta/administrator/components/com_virtuemart/controllers/product.php",
@@ -126,9 +136,16 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"",
+			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart",
+			"",
+			"C:\\wamp\\www\\canasta\\components\\com_virtuemart\\",
+			"C:\\wamp\\www\\canasta\\components\\com_virtuemart\\views\\invoice\\tmpl",
+			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart\\views\\orders",
+			"",
 			"C:\\wamp\\www\\fgteam\\foro",
 			""
 		]
@@ -138,6 +155,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"export",
+			"on appendButton(",
+			"appendButton",
+			"exportOrdersAsCSV",
+			"export",
+			"xls",
+			"getOrdersListQuery",
+			"userinfos",
+			"_selectedOrdering",
+			"sort",
+			"address",
+			"zip",
+			"COM_VIRTUEMART_ORDER_LIST_NUMBER",
+			"zip",
+			"address",
+			"pricesUnformatted",
+			"changeProduct(",
+			"getEquivalentCanastaProducts",
 			"alt",
 			"forums",
 			"unread",
@@ -217,63 +252,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "administrator/components/com_virtuemart/models/product.php",
-					"settings":
-					{
-						"buffer_size": 55038,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								28773,
-								28773
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 14179.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "administrator/components/com_virtuemart/helpers/vmmodel.php",
-					"settings":
-					{
-						"buffer_size": 19655,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9101,
-								9101
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5886.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -318,6 +298,38 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"adminvirtueorder",
+				"administrator/components/com_virtuemart/controllers/orders.php"
+			],
+			[
+				"adminorders",
+				"administrator/components/com_virtuemart/controllers/orders.php"
+			],
+			[
+				"modulesreparto",
+				"modules/mod_repartos/mod_repartos.php"
+			],
+			[
+				"min",
+				"components/com_virtuemart/views/cart/tmpl/mini_cart.php"
+			],
+			[
+				"change_product",
+				"components/com_virtuemart/views/cart/tmpl/change_product.php"
+			],
+			[
+				"cart",
+				"components/com_virtuemart/helpers/cart.php"
+			],
+			[
+				"cart.php",
+				"components/com_virtuemart/controllers/cart.php"
+			],
+			[
+				"reparto",
+				"administrator/components/com_repartos/repartos.php"
+			],
 			[
 				"com_virtueindex",
 				"administrator/components/com_virtuemart/index.html"
@@ -401,6 +413,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 235.0,
+	"side_bar_width": 285.0,
 	"status_bar_visible": true
 }
