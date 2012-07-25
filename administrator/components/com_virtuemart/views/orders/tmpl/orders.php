@@ -28,7 +28,7 @@ AdminUIHelper::startAdminArea();
 	    <table>
 		<tr>
 		    <td align="left" width="100%">
-<?php echo $this->displayDefaultViewSearch('COM_VIRTUEMART_ORDER_PRINT_NAME'); ?>
+<?php echo $this->displayDefaultViewSearch('Día de Envío'); ?>
 <?php echo JText::_('COM_VIRTUEMART_ORDERSTATUS').':'. $this->lists['state_list']; ?>
 		    </td>
 		</tr>
@@ -42,6 +42,8 @@ AdminUIHelper::startAdminArea();
 		<th><input type="checkbox" name="toggle" value="" onclick="checkAll('<?php echo count($this->orderslist); ?>')" /></th>
 		<th><?php echo $this->sort('order_number', 'COM_VIRTUEMART_ORDER_LIST_NUMBER')  ?></th>
 		<th><?php echo $this->sort('order_name', 'COM_VIRTUEMART_ORDER_PRINT_NAME')  ?></th>
+		<th><?php echo $this->sort('order_zip', 'COM_VIRTUEMART_ORDER_PRINT_ZIP')  ?></th>
+		<th><?php echo $this->sort('order_address', 'COM_VIRTUEMART_USER_FORM_SHIPTO_LBL')  ?></th>
 		<th><?php echo $this->sort('payment_method', 'COM_VIRTUEMART_ORDER_PRINT_PAYMENT_LBL')  ?></th>
 		<th><?php echo JText::_('COM_VIRTUEMART_PRINT_VIEW'); ?></th>
 		<th><?php echo $this->sort('created_on', 'COM_VIRTUEMART_ORDER_CDATE')  ?></th>
@@ -73,6 +75,8 @@ if (count($this->orderslist) > 0) {
 			<td><?php echo JHTML::_('link', JRoute::_($link), $order->order_number, array('title' => JText::_('COM_VIRTUEMART_ORDER_EDIT_ORDER_NUMBER') . ' ' . $order->order_number)); ?></td>
 
 			<td><?php echo $order->order_name; ?></td>
+			<td><?php echo $order->zip; ?></td>
+			<td><?php echo $order->address; ?></td>
 			<!-- Payment method -->
 			<td><?php echo $order->payment_method; ?></td>
 			<!-- Print view -->
@@ -121,7 +125,7 @@ if (count($this->orderslist) > 0) {
 	</tbody>
 	<tfoot>
 	    <tr>
-		<td colspan="11">
+		<td colspan="13">
 <?php echo $this->pagination->getListFooter(); ?>
 		</td>
 	    </tr>

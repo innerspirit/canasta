@@ -184,7 +184,7 @@ $q = 'SELECT virtuemart_order_item_id, product_quantity, order_item_name,
 // 		vmdebug('getOrdersList');
 		$this->_noLimit = $noLimit;
 		$selecct = " o.*, CONCAT_WS(' ',u.first_name,u.middle_name,u.last_name) AS order_name "
-		.',pm.payment_name AS payment_method ';
+		.',pm.payment_name AS payment_method, u.zip, CONCAT_WS(\' \', u.address_1, u.address_2) as address ';
 		$from = $this->getOrdersListQuery();
 		/*		$_filter = array();
 		 if ($uid > 0) {
@@ -209,9 +209,11 @@ $q = 'SELECT virtuemart_order_item_id, product_quantity, order_item_name,
 			$search = '"%' . $this->_db->getEscaped( $search, true ) . '%"' ;
 
 			if(empty($whereString)){
-				$whereString = ' WHERE ( u.first_name LIKE '.$search.' OR u.middle_name LIKE '.$search.' OR u.last_name LIKE '.$search.' OR `order_number` LIKE '.$search.')';
+				$whereString = ' WHERE ( u.diaenvio LIKE '.$search.' )';
+				//$whereString = ' WHERE ( u.first_name LIKE '.$search.' OR u.middle_name LIKE '.$search.' OR u.last_name LIKE '.$search.' OR `order_number` LIKE '.$search.')';
 			} else {
-				$whereString .= ' AND ( u.first_name LIKE '.$search.' OR u.middle_name LIKE '.$search.' OR u.last_name LIKE '.$search.' OR `order_number` LIKE '.$search.')';
+				$whereString = ' AND ( u.diaenvio LIKE '.$search.' )';
+				//$whereString .= ' AND ( u.first_name LIKE '.$search.' OR u.middle_name LIKE '.$search.' OR u.last_name LIKE '.$search.' OR `order_number` LIKE '.$search.')';
 			}
 
 

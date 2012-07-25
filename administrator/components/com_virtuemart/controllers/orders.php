@@ -290,34 +290,39 @@ class VirtuemartControllerOrders extends VmController {
 
 		$csv = '';
 
-		$head = array('virtuemart_order_userinfo_id','virtuemart_vendor_id','order_number','order_total','order_subtotal','order_tax','order_status','user_currency_rate','customer_note');
+		$head = array('order_number','first_name','middle_name','last_name','zip','address_1','created_on','order_total','customer_note');
 
+		$rows = array();
+		$cols = array();
 		foreach($head as $item){
-			$csv .= '"'.$item.'";"';
+			$cols[] = '"'.$item.'"';
 		}
+
+		$rows[] = implode(';', $cols);
 
 		foreach($orders as $order){
-// 			$order = (array) $order;7
-// 			$order['details']
-// 			$order['items']
-// 			$order['calc_rules']
-			$attribs = get_object_vars($order['details']['BT']);
-
-// 			$csv = '"BT"';
-// 			foreach($attribs as $k=>$v){
-// 				$csv .= ';"'.$k.':'$v;
-// 			}
-// 			$csv .= "\n";
+			if(!isset($order['details']['BT'])) {
+				continue;
+			}
+			$cols = array();
+			$stuff = $order['details']['BT'];
+			foreach($head as $item) {
+				$data = isset($stuff->$item) ? $stuff->$item : '';
+				$cols[] = '"'.$data.'"';
+			}
+			$rows[] = implode(',', $cols);
 		}
+
+		$csv = implode("\n", $rows);
 
 		$jUser = JFactory::getUser();
 		$date = date("Y-m-d");
 		$name = $jUser->name.$date.'.csv';
 // 		header("Content-Disposition: attachment; filename=\"".JFile::getName($media->file_url)."\"");
-// 		header("Content-Disposition: attachment; filename=\"".$name."\"");
-// 		echo $csv;
-		parent::display();
-// 		jExit();
+ 		header("Content-Disposition: attachment; filename=\"".$name."\"");
+ 		echo $csv;
+//		parent::display();
+ 		jExit();
 	}
 
 

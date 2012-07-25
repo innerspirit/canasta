@@ -33,7 +33,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
         <?php foreach($items as $item): ?>
         <tr>
             <td><?php echo $item->codigopostal; ?></td>
-            <td><?php echo date('d/m/Y',strtotime($item->fecha)); ?></td>
+            <td><?php echo $item->fecha; ?></td>
         </tr>
         <?php endforeach; ?>
     </table>
