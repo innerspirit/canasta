@@ -36,16 +36,16 @@
 	},
 	"file_history":
 	[
-		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/tmpl/orders.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/controllers/orders.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/tmpl/order.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/view.html.php",
 		"/C/wamp/www/canasta/administrator/components/com_virtuemart/models/orders.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/tmpl/orders.php",
 		"/C/wamp/www/canasta/administrator/components/com_virtuemart/helpers/vmmodel.php",
 		"/C/wamp/www/canasta/administrator/language/en-GB/en-GB.com_virtuemart.ini",
-		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/view.html.php",
-		"/C/wamp/www/canasta/administrator/components/com_virtuemart/controllers/orders.php",
 		"/C/wamp/www/canasta/administrator/includes/toolbar.php",
 		"/C/wamp/www/canasta/libraries/joomla/html/toolbar.php",
 		"/C/wamp/www/canasta/components/com_virtuemart/views/invoice/tmpl/invoice_order.php",
-		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/tmpl/order.php",
 		"/C/wamp/www/canasta/components/com_virtuemart/views/invoice/tmpl/invoice.php",
 		"/C/wamp/www/canasta/components/com_virtuemart/controllers/invoice.php",
 		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/tmpl/order_print.php",
@@ -139,6 +139,11 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart",
+			"",
+			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart\\views\\orders",
+			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart",
+			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart\\views\\orders",
 			"",
 			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart",
 			"",
@@ -155,6 +160,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"exportOrdersAsCSV",
+			"csv",
+			"city",
+			"COM_VIRTUEMART_USER_FORM_SHIPTO_LBL",
+			"hidden",
+			"search",
+			"diaenvio",
+			"dia",
+			"find",
+			"fin",
+			"find",
+			"search",
 			"export",
 			"on appendButton(",
 			"appendButton",
@@ -298,6 +315,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"orders",
+				"administrator/components/com_virtuemart/controllers/orders.php"
+			],
 			[
 				"adminvirtueorder",
 				"administrator/components/com_virtuemart/controllers/orders.php"

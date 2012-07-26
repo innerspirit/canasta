@@ -290,7 +290,7 @@ class VirtuemartControllerOrders extends VmController {
 
 		$csv = '';
 
-		$head = array('order_number','first_name','middle_name','last_name','zip','address_1','created_on','order_total','customer_note');
+		$head = array('order_number','first_name','middle_name','last_name','zip','address_1','city','created_on','order_total','customer_note');
 
 		$rows = array();
 		$cols = array();
@@ -310,7 +310,7 @@ class VirtuemartControllerOrders extends VmController {
 				$data = isset($stuff->$item) ? $stuff->$item : '';
 				$cols[] = '"'.$data.'"';
 			}
-			$rows[] = implode(',', $cols);
+			$rows[] = implode(';', $cols);
 		}
 
 		$csv = implode("\n", $rows);
