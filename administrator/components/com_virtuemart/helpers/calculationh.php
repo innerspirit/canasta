@@ -289,9 +289,9 @@ class calculationHelper {
 		}
                 
                 if($units > 0) {
-                    $prices['unitPrice'] /= $units;
+                    $prices['unitPrice'] /= ($units / UNIDAD_MINIMA);
                 } else if($weight > 0) {
-                    $prices['unitPrice'] /= ($weight / 100);
+                    $prices['unitPrice'] /= ($weight / UNIDAD_MINIMA_GRAMOS);
                 }
 
 		$this->setCountryState($this->_cart);

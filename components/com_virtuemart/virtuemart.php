@@ -24,6 +24,9 @@ if( !defined( '_JEXEC' ) ) die( 'Direct Access to '.basename(__FILE__).' is not 
 if (!class_exists( 'VmConfig' )) require(JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_virtuemart'.DS.'helpers'.DS.'config.php');
 VmConfig::loadConfig();
 
+define('UNIDAD_MINIMA', 0.25);
+define('UNIDAD_MINIMA_GRAMOS', 50);
+
 vmRam('Start');
 // vmSetStartTime();
 vmSetStartTime('Start');

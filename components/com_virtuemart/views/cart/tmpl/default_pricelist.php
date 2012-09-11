@@ -151,9 +151,9 @@
                                         $prod->product_price = $prow->product_price;
                                         $eq = (int) $cart->getEquivalentQuantity($prod, $prod);
                                         if($prod->box > 0) {
-                                            echo '('.floor($eq).')';
+                                            echo '('.number_format(floor($eq) * UNIDAD_MINIMA, 2, ',', '.').')';
                                         } else {
-                                            $eq = floor($eq * 100 / 50) * 50;
+                                            $eq = floor($eq) * UNIDAD_MINIMA_GRAMOS;
                                             echo  '('.$eq.'g)';
                                         }
                                         ?>

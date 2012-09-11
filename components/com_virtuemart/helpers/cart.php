@@ -1491,9 +1491,9 @@ class VirtueMartCart {
                     if($cp->virtuemart_product_id != $prod->virtuemart_product_id) {
                         $final = (int) self::getEquivalentQuantity($cp, $prod);
                         if(!empty($cp->box)) {
-                            $label = floor($final) . 'x ' . $cp->product_name;
+                            $label = number_format(floor($final) * UNIDAD_MINIMA, 2, ',', '.') . 'x ' . $cp->product_name;
                         } else {
-                            $final = floor($final * 100 / 50) * 50;
+                            $final = floor($final) * UNIDAD_MINIMA_GRAMOS;
                             $label = $final . 'g ' . $cp->product_name;
                         }
                         $items[$cp->virtuemart_product_id] = JHTML::_('select.option',$cp->virtuemart_product_id,$label);
@@ -1510,11 +1510,11 @@ class VirtueMartCart {
 //            echo "<br>original product ".(!empty($prod1->box) ? '(u)' : '(g)')." | price $orig_price | base $base | units ".(!empty($prod1->box) ? $prod1->box : $prod1->product_weight). '<br>';
 //            echo "new product ".(!empty($prod2->box) ? '(u)' : '(g)')." | price $current | base ".$prod2->prices['unitPrice']." | units ".(!empty($prod2->box) ? $prod2->box : $prod2->product_weight) . '<br>';
 //            echo "$current / $base = ".($current / $base).' or '.floor($current / $base) . '<br><br>';
-            if($prod2->box > 0) {
-                return floor($current / $base);
+            return $current / $base;
+/*            if($prod2->box > 0) {
             } else {
                 return $current / $base;
-            }
+            }*/
         }
         
         public function getTaxProduct() {
