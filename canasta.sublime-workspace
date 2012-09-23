@@ -7,6 +7,64 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "components/com_virtuemart/virtuemart.php",
+			"settings":
+			{
+				"buffer_size": 4620,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 1621 files for \"vmprices.js\"\n\nC:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart\\helpers\\config.php:\n  887  		$document->addScriptDeclaration($jsVars);\n  888  		JHTML::script('facebox.js', 'components/com_virtuemart/assets/js/', false);\n  889: 		JHTML::script('vmprices.js', 'components/com_virtuemart/assets/js/', false);\n  890  		JHTML::stylesheet('facebox.css', 'components/com_virtuemart/assets/css/', false);\n  891  \n\n1 match in 1 file\n\n\nSearching 1621 files for \"jPrice\" (case sensitive)\n\nC:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart\\helpers\\config.php:\n  860  	}\n  861  	// Virtuemart product and price script\n  862: 	function jPrice()\n  863  	{\n  864  		if ( !VmConfig::get('jprice',true ) and JFactory::getApplication()->isSite() ) return false;\n  865: 		static $jPrice;\n  866  		// If exist exit\n  867: 		if ($jPrice) return;\n  868  \n  869  		//JPlugin::loadLanguage('com_virtuemart');\n  ...\n  890  		JHTML::stylesheet('facebox.css', 'components/com_virtuemart/assets/css/', false);\n  891  \n  892: 		$jPrice = true;\n  893  		return true;\n  894  	}\n\nC:\\wamp\\www\\canasta\\components\\com_virtuemart\\views\\askquestion\\view.html.php:\n   48  \n   49  	/* add javascript for price and cart */\n   50: 	vmJsApi::jPrice();\n   51  \n   52  	$mainframe = JFactory::getApplication();\n\nC:\\wamp\\www\\canasta\\components\\com_virtuemart\\views\\category\\view.html.php:\n   44  		$document = JFactory::getDocument();\n   45  		// add javascript for price and cart\n   46: 		vmJsApi::jPrice();\n   47  \n   48  		$app = JFactory::getApplication();\n\nC:\\wamp\\www\\canasta\\components\\com_virtuemart\\views\\productdetails\\view.html.php:\n   54  \n   55  	/* add javascript for price and cart */\n   56: 	vmJsApi::jPrice();\n   57  \n   58  	$mainframe = JFactory::getApplication();\n\nC:\\wamp\\www\\canasta\\components\\com_virtuemart\\views\\recommend\\view.html.php:\n   47  \n   48  		/* add javascript for price and cart */\n   49: 		vmJsApi::jPrice();\n   50  \n   51  		$mainframe = JFactory::getApplication();\n\nC:\\wamp\\www\\canasta\\modules\\mod_virtuemart_cart\\mod_virtuemart_cart.php:\n   22  //VmConfig::loadConfig();\n   23  \n   24: vmJsApi::jPrice();\n   25  vmJsApi::cssSite();*/\n   26  $jsVars  = ' jQuery(document).ready(function(){\n   ..\n   53  \n   54  vmJsApi::jQuery();\n   55: vmJsApi::jPrice();\n   56  vmJsApi::cssSite();\n   57  $document = JFactory::getDocument();\n\nC:\\wamp\\www\\canasta\\modules\\mod_virtuemart_product\\mod_virtuemart_product.php:\n   66  	if ($show_addtocart) {\n   67  		vmJsApi::jQuery();\n   68: 		vmJsApi::jPrice();\n   69  		vmJsApi::cssSite();\n   70  	}\n\n11 matches across 7 files\n",
+			"settings":
+			{
+				"buffer_size": 2600,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "components/com_virtuemart/views/cart/tmpl/default_pricelist.php",
+			"settings":
+			{
+				"buffer_size": 20289,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "administrator/components/com_virtuemart/helpers/calculationh.php",
+			"settings":
+			{
+				"buffer_size": 53723,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "components/com_virtuemart/helpers/cart.php",
+			"settings":
+			{
+				"buffer_size": 54457,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "administrator/components/com_virtuemart/helpers/vmmodel.php",
+			"settings":
+			{
+				"buffer_size": 19722,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "components/com_virtuemart/views/cart/view.html.php",
+			"settings":
+			{
+				"buffer_size": 12813,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -36,6 +94,17 @@
 	},
 	"file_history":
 	[
+		"/C/wamp/www/canasta/modules/mod_repartos/mod_repartos.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/helpers/config.php",
+		"/C/wamp/www/canasta/modules/mod_virtuemart_product/mod_virtuemart_product.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/assets/js/vmprices.js",
+		"/C/wamp/www/canasta/components/com_virtuemart/virtuemart.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/views/cart/tmpl/default_pricelist.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/helpers/calculationh.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/helpers/cart.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/controllers/cart.php",
+		"/C/wamp/www/canasta/components/com_virtuemart/controllers/virtuemart.php",
+		"/C/wamp/www/canasta/administrator/components/com_virtuemart/tables/product_prices.php",
 		"/C/wamp/www/canasta/administrator/components/com_virtuemart/controllers/orders.php",
 		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/tmpl/order.php",
 		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/view.html.php",
@@ -51,11 +120,7 @@
 		"/C/wamp/www/canasta/administrator/components/com_virtuemart/views/orders/tmpl/order_print.php",
 		"/C/wamp/www/canasta/modules/mod_repartos/tmpl/default.php",
 		"/C/wamp/www/canasta/modules/mod_repartos/tmpl/itemlist.php",
-		"/C/wamp/www/canasta/modules/mod_repartos/mod_repartos.php",
 		"/C/wamp/www/canasta/modules/mod_repartos/helper.php",
-		"/C/wamp/www/canasta/components/com_virtuemart/views/cart/tmpl/default_pricelist.php",
-		"/C/wamp/www/canasta/components/com_virtuemart/helpers/cart.php",
-		"/C/wamp/www/canasta/components/com_virtuemart/controllers/cart.php",
 		"/C/wamp/www/canasta/components/com_virtuemart/views/cart/tmpl/mini_cart.php",
 		"/C/wamp/www/canasta/components/com_virtuemart/views/cart/tmpl/change_product.php",
 		"/C/wamp/www/canasta/components/com_virtuemart/views/cart/view.html.php",
@@ -136,9 +201,13 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"C:\\wamp\\www\\canasta\\,*.php",
+			"C:\\wamp\\www\\canasta\\,*.js",
+			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart,*.js",
+			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart,*.php",
 			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart",
 			"",
 			"C:\\wamp\\www\\canasta\\administrator\\components\\com_virtuemart\\views\\orders",
@@ -157,9 +226,13 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"jPrice",
+			"vmprices.js",
+			"changeproduct",
+			"100",
 			"exportOrdersAsCSV",
 			"csv",
 			"city",
@@ -269,8 +342,256 @@
 	"groups":
 	[
 		{
+			"selected": 6,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "components/com_virtuemart/virtuemart.php",
+					"settings":
+					{
+						"buffer_size": 4620,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1603,
+								1603
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 264.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 2600,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										280,
+										291
+									],
+									[
+										668,
+										674
+									],
+									[
+										806,
+										812
+									],
+									[
+										854,
+										860
+									],
+									[
+										1045,
+										1051
+									],
+									[
+										1245,
+										1251
+									],
+									[
+										1499,
+										1505
+									],
+									[
+										1717,
+										1723
+									],
+									[
+										1937,
+										1943
+									],
+									[
+										2136,
+										2142
+									],
+									[
+										2286,
+										2292
+									],
+									[
+										2524,
+										2530
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								2119,
+								2119
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 414.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "components/com_virtuemart/views/cart/tmpl/default_pricelist.php",
+					"settings":
+					{
+						"buffer_size": 20289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "administrator/components/com_virtuemart/helpers/calculationh.php",
+					"settings":
+					{
+						"buffer_size": 53723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "components/com_virtuemart/helpers/cart.php",
+					"settings":
+					{
+						"buffer_size": 54457,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "administrator/components/com_virtuemart/helpers/vmmodel.php",
+					"settings":
+					{
+						"buffer_size": 19722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								861,
+								861
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "components/com_virtuemart/views/cart/view.html.php",
+					"settings":
+					{
+						"buffer_size": 12813,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1439,
+								1439
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -315,6 +636,18 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"repartos",
+				"modules/mod_repartos/mod_repartos.php"
+			],
+			[
+				"vmmodel",
+				"administrator/components/com_virtuemart/helpers/vmmodel.php"
+			],
+			[
+				"price",
+				"administrator/components/com_virtuemart/tables/product_prices.php"
+			],
 			[
 				"orders",
 				"administrator/components/com_virtuemart/controllers/orders.php"
@@ -424,11 +757,15 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/C/wamp/www/99dest.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,

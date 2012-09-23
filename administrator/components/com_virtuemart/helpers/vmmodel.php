@@ -20,6 +20,8 @@
 defined('_JEXEC') or die();
 
 define('USE_SQL_CALC_FOUND_ROWS' , true);
+define('UNIDAD_MINIMA', 0.25);
+define('UNIDAD_MINIMA_GRAMOS', 50);
 
 if(!class_exists('JModel')) require JPATH_VM_LIBRARIES.DS.'joomla'.DS.'application'.DS.'component'.DS.'model.php';
 

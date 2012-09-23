@@ -49,6 +49,7 @@ class VirtueMartViewCart extends VmView {
 		require(JPATH_VM_SITE . DS . 'helpers' . DS . 'cart.php');
 		$cart = VirtueMartCart::getCart();
 		$this->assignRef('cart', $cart);
+		vmJsApi::jPrice();
 
 		//Why is this here, when we have view.raw.php
 		if ($format == 'raw') {
